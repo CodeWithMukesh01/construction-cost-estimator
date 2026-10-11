@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Quotes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p class="tag"><a href="index.html">← Back to estimator</a></p>
+    <h1>Compare your quotes</h1>
+    <p>Enter the reference code you received and the phone number you used.</p>
+  </header>
+  <main>
+    <section class="card">
+      <form id="compare-form">
+        <label>Reference code <input id="ref" required placeholder="e.g. 9F3A12BC"></label>
+        <label>Phone number <input id="phone" type="tel" required></label>
+        <button type="submit">Show quotes</button>
+      </form>
+      <p id="msg" class="error"></p>
+    </section>
+
+    <section class="card" id="result-card" hidden>
+      <h2>Quotes side by side</h2>
+      <div class="table-wrap"><table id="compare-table"></table></div>
+    </section>
+  </main>
+
+  <script>
+    const API = "http://127.0.0.1:8000/api";
+    const $ = (id) => document.getElementById(id);
+    const inr = (n) => (n == null ? "–" : "₹" + Number(n).toLocaleString("en-IN"));
+
+    try {
+      $("ref").value = localStorage.getItem("last_ref") || "";
+      $("phone").value = localStorage.getItem("last_phone") || "";
+    } catch (_) {}
+
+    $("compare-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      $("msg").textContent = "";
+      $("result-card").hidden = true;
+      const url = `${API}/compare/?ref=${encodeURIComponent($("ref").value.trim())}` +
+                  `&phone=${encodeURIComponent($("phone").value.trim())}`;
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Something went wrong.");
+        render(data);
+      } catch (err) {
+        $("msg").textContent = err.message;
+      }
+    });
+
+    function render(list) {
+      const table = $("compare-table");
+      table.innerHTML = "";
+      const quoted = list.filter((c) => c.company_quote != null);
+      const lowest = quoted.length ? Math.min(...quoted.map((c) => c.company_quote)) : null;
+
+      const rows = [
+        ["Company", (c) => c.company],
+        ["City", (c) => c.city],
+        ["Rating", (c) => "⭐ " + c.rating],
+        ["Experience", (c) => c.years_experience + " yrs"],
+        ["Projects done", (c) => c.projects_completed],
+        ["Your estimate", (c) => inr(c.your_estimate)],
+        ["Their quote", (c) => (c.company_quote == null ? "Waiting for quote" : inr(c.company_quote))],
+        ["Vs your estimate", (c) => {
+          if (c.company_quote == null || !c.your_estimate) return "–";
+          const d = ((c.company_quote - c.your_estimate) / c.your_estimate) * 100;
+          return (d > 0 ? "+" : "") + d.toFixed(1) + "%";
+        }],
+        ["Note", (c) => c.company_note || "–"],
+        ["Contact", (c) => c.company_phone || "–"],
+      ];
+
+      rows.forEach(([label, fn]) => {
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        th.textContent = label;
+        tr.appendChild(th);
+        list.forEach((c) => {
+          const td = document.createElement("td");
+          td.textContent = fn(c);
+          if (label === "Their quote" && c.company_quote != null && c.company_quote === lowest) {
+            td.className = "best";
+            td.textContent += "  ✔ lowest";
+          }
+          tr.appendChild(td);
+        });
+        table.appendChild(tr);
+      });
+      $("result-card").hidden = false;
+    }
+  </script>
+</body>
+</html>

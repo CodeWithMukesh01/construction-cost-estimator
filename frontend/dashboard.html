@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p class="tag"><a href="index.html">← Back to estimator</a></p>
+    <h1>Company dashboard</h1>
+  </header>
+  <main>
+    <section class="card" id="login-card">
+      <h2>Log in</h2>
+      <form id="login-form">
+        <label>Username <input id="l_user" required></label>
+        <label>Password <input id="l_pass" type="password" required></label>
+        <button type="submit">Log in</button>
+      </form>
+      <p id="login-msg" class="error"></p>
+      <p>New company? <a href="register.html">Register here</a></p>
+    </section>
+
+    <section class="card" id="dash-card" hidden>
+      <div class="search-row">
+        <h2 id="welcome" style="flex:1;margin:0"></h2>
+        <button id="logout" class="secondary" type="button">Log out</button>
+      </div>
+      <p id="verify-note" class="muted"></p>
+      <h3>Quote requests received</h3>
+      <div id="requests"></div>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

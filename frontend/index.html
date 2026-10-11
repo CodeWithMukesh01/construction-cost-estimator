@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Cost Estimator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p class="tag">SDG 11 · Sustainable Cities and Communities</p>
+    <p><a href="register.html">Register your company</a> · <a href="dashboard.html">Company login</a></p>
+    <h1>Know your construction cost before you call a contractor</h1>
+    <p>Get an itemised estimate, then get matched with verified companies.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Estimate your cost</h2>
+      <form id="estimate-form">
+        <label>Plot size (sq ft)
+          <input type="number" id="plot_size" min="1" required placeholder="e.g. 1200">
+        </label>
+        <label>Number of floors
+          <input type="number" id="floors" min="1" max="10" value="1" required>
+        </label>
+        <label>Finish level
+          <select id="finish_level">
+            <option value="basic">Basic</option>
+            <option value="standard" selected>Standard</option>
+            <option value="premium">Premium</option>
+          </select>
+        </label>
+        <button type="submit">Calculate estimate</button>
+      </form>
+      <p id="estimate-error" class="error" hidden></p>
+
+      <div id="result" hidden>
+        <h3>Estimated cost range</h3>
+        <p class="range" id="range"></p>
+        <p class="muted" id="area"></p>
+        <table>
+          <thead><tr><th>Item</th><th>Rate (₹/sq ft)</th><th>Cost (₹)</th></tr></thead>
+          <tbody id="items"></tbody>
+        </table>
+        <button id="pdf-btn" type="button" style="margin-top:14px">Download PDF report</button>
+      </div>
+    </section>
+
+      <section class="card">
+      <h2>2. Find verified companies</h2>
+      <div class="search-row">
+        <input type="text" id="city" placeholder="Search by city, e.g. Ahmedabad">
+        <button id="search-btn" type="button">Search</button>
+      </div>
+      <div id="selection-bar" class="selection-bar" hidden>
+        <span id="sel-count"></span>
+        <button id="sel-request" type="button">Request quotes from selected</button>
+      </div>
+      <div id="companies"></div>
+      <p class="muted">Already sent requests? <a href="compare.html">Compare your quotes</a></p>
+    </section>
+  </main>
+
+  <dialog id="quote-dialog">
+    <form id="quote-form">
+      <h3 id="quote-title">Request a quote</h3>
+      <label>Your name <input type="text" id="q_name" required></label>
+      <label>Phone <input type="tel" id="q_phone" required></label>
+      <label>Email (optional) <input type="email" id="q_email"></label>
+      <label>Project details <textarea id="q_message" rows="3"></textarea></label>
+      <div class="dialog-actions">
+        <button type="button" id="q_cancel" class="secondary">Cancel</button>
+        <button type="submit">Send request</button>
+      </div>
+      <p id="quote-msg" class="muted"></p>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

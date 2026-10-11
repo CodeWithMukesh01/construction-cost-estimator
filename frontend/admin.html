@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Analytics</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+  <header>
+    <p class="tag"><a href="index.html">← Back to estimator</a></p>
+    <h1>Platform analytics</h1>
+  </header>
+
+  <main>
+    <section class="card" id="login-card">
+      <h2>Admin log in</h2>
+      <form id="login-form">
+        <label>Username <input id="a_user" required></label>
+        <label>Password <input id="a_pass" type="password" required></label>
+        <button type="submit">Log in</button>
+      </form>
+      <p id="login-msg" class="error"></p>
+      <p class="muted">Use your Django admin account.</p>
+    </section>
+
+    <div id="dash" hidden>
+      <div class="search-row">
+        <p class="muted" id="who" style="flex:1;margin:0"></p>
+        <button id="refresh" class="secondary" type="button">Refresh</button>
+        <button id="logout" class="secondary" type="button">Log out</button>
+      </div>
+
+      <div class="kpis" id="kpis"></div>
+
+      <section class="card">
+        <h2>Estimates per week</h2>
+        <div class="chart-box"><canvas id="weekly-chart"></canvas></div>
+      </section>
+
+      <section class="card">
+        <h2>Estimates by finish level</h2>
+        <div class="chart-box small"><canvas id="finish-chart"></canvas></div>
+      </section>
+
+      <section class="card">
+        <h2>Most requested companies</h2>
+        <table>
+          <thead><tr><th>Company</th><th>City</th><th>Requests</th><th>Quotes sent</th></tr></thead>
+          <tbody id="top-body"></tbody>
+        </table>
+      </section>
+
+      <p class="muted">Estimates are counted from the day tracking was added, so the
+      estimate-to-request rate can look high at first.</p>
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
