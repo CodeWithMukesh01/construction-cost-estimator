@@ -16,3 +16,8 @@ media/
 .vscode/
 .DS_Store
 Thumbs.db
+
+backend/rates.json
+backend/companies.json
+.env
+backend/.env

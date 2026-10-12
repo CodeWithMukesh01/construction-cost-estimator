@@ -1,0 +1,204 @@
+[
+{
+  "model": "estimator.costrate",
+  "pk": 1,
+  "fields": {
+    "item": "Structure (cement, steel, brickwork)",
+    "finish_level": "basic",
+    "rate_per_sqft": "900.00",
+    "updated_at": "2026-10-11T09:00:59.540Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 2,
+  "fields": {
+    "item": "Structure (cement, steel, brickwork)",
+    "finish_level": "standard",
+    "rate_per_sqft": "1100.00",
+    "updated_at": "2026-10-11T09:00:59.557Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 3,
+  "fields": {
+    "item": "Structure (cement, steel, brickwork)",
+    "finish_level": "premium",
+    "rate_per_sqft": "1400.00",
+    "updated_at": "2026-10-11T09:00:59.567Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 4,
+  "fields": {
+    "item": "Flooring",
+    "finish_level": "basic",
+    "rate_per_sqft": "120.00",
+    "updated_at": "2026-10-11T09:00:59.577Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 5,
+  "fields": {
+    "item": "Flooring",
+    "finish_level": "standard",
+    "rate_per_sqft": "220.00",
+    "updated_at": "2026-10-11T09:00:59.588Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 6,
+  "fields": {
+    "item": "Flooring",
+    "finish_level": "premium",
+    "rate_per_sqft": "450.00",
+    "updated_at": "2026-10-11T09:00:59.597Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 7,
+  "fields": {
+    "item": "Plumbing & sanitary",
+    "finish_level": "basic",
+    "rate_per_sqft": "100.00",
+    "updated_at": "2026-10-11T09:00:59.610Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 8,
+  "fields": {
+    "item": "Plumbing & sanitary",
+    "finish_level": "standard",
+    "rate_per_sqft": "160.00",
+    "updated_at": "2026-10-11T09:00:59.623Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 9,
+  "fields": {
+    "item": "Plumbing & sanitary",
+    "finish_level": "premium",
+    "rate_per_sqft": "280.00",
+    "updated_at": "2026-10-11T09:00:59.638Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 10,
+  "fields": {
+    "item": "Electrical",
+    "finish_level": "basic",
+    "rate_per_sqft": "90.00",
+    "updated_at": "2026-10-11T09:00:59.648Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 11,
+  "fields": {
+    "item": "Electrical",
+    "finish_level": "standard",
+    "rate_per_sqft": "140.00",
+    "updated_at": "2026-10-11T09:00:59.661Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 12,
+  "fields": {
+    "item": "Electrical",
+    "finish_level": "premium",
+    "rate_per_sqft": "240.00",
+    "updated_at": "2026-10-11T09:00:59.671Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 13,
+  "fields": {
+    "item": "Painting & finishing",
+    "finish_level": "basic",
+    "rate_per_sqft": "70.00",
+    "updated_at": "2026-10-11T09:00:59.680Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 14,
+  "fields": {
+    "item": "Painting & finishing",
+    "finish_level": "standard",
+    "rate_per_sqft": "120.00",
+    "updated_at": "2026-10-11T09:00:59.692Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 15,
+  "fields": {
+    "item": "Painting & finishing",
+    "finish_level": "premium",
+    "rate_per_sqft": "220.00",
+    "updated_at": "2026-10-11T09:00:59.702Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 16,
+  "fields": {
+    "item": "Labour",
+    "finish_level": "basic",
+    "rate_per_sqft": "350.00",
+    "updated_at": "2026-10-11T09:00:59.712Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 17,
+  "fields": {
+    "item": "Labour",
+    "finish_level": "standard",
+    "rate_per_sqft": "420.00",
+    "updated_at": "2026-10-11T09:00:59.726Z"
+  }
+},
+{
+  "model": "estimator.costrate",
+  "pk": 18,
+  "fields": {
+    "item": "Labour",
+    "finish_level": "premium",
+    "rate_per_sqft": "550.00",
+    "updated_at": "2026-10-11T09:00:59.738Z"
+  }
+},
+{
+  "model": "estimator.estimatelog",
+  "pk": 1,
+  "fields": {
+    "plot_size": 1200.0,
+    "floors": 2,
+    "finish_level": "standard",
+    "total": 3628800,
+    "created_at": "2026-10-11T16:19:30.566Z"
+  }
+},
+{
+  "model": "estimator.estimatelog",
+  "pk": 2,
+  "fields": {
+    "plot_size": 6000.0,
+    "floors": 1,
+    "finish_level": "standard",
+    "total": 9072000,
+    "created_at": "2026-10-12T04:38:12.985Z"
+  }
+}
+]
