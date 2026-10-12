@@ -1,5 +1,6 @@
 // After deployment, change this to your live backend URL, e.g. "https://YOUR-NAME.onrender.com/api"
-const ADMIN_API = "http://127.0.0.1:8000/api";
+const API_URL = "https://construction-cost-estimator-1.onrender.com";
+const API = `${API_URL}/api`;
 
 const $ = (id) => document.getElementById(id);
 const inr = (n) => (n == null ? "–" : "₹" + Math.round(n).toLocaleString("en-IN"));

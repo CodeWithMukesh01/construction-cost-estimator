@@ -1,4 +1,5 @@
-const API = "http://127.0.0.1:8000/api";
+const API_URL = "https://construction-cost-estimator-1.onrender.com";
+const API = `${API_URL}/api`;
 const $ = (id) => document.getElementById(id);
 const inr = (n) => (n == null ? "–" : "₹" + Number(n).toLocaleString("en-IN"));
 

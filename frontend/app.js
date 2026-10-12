@@ -1,4 +1,5 @@
-const API = "http://127.0.0.1:8000/api";
+const API_URL = "https://construction-cost-estimator-1.onrender.com";
+const API = `${API_URL}/api`;
 let lastEstimateTotal = null;
 let lastPayload = null;
 let dialogCompanyIds = [];

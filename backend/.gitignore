@@ -1,7 +1,18 @@
+# Secrets
 .env
-venv/
+*.env
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Django
+db.sqlite3
 staticfiles/
+media/
+
+# VS Code and OS
 .vscode/
-.dist/
+.DS_Store
+Thumbs.db
