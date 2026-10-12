@@ -22,12 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'dev-only-insecure-key')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'construction-cost-estimator-1.onrender.com',
+]
 CSRF_TRUSTED_ORIGINS = []
 
 RENDER_HOST = os.getenv('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_HOST:
-    ALLOWED_HOSTS.append(RENDER_HOST)
+    if RENDER_HOST not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(RENDER_HOST)
     CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_HOST}')
 
 if not DEBUG:
@@ -50,7 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # must be at the top
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -127,19 +132,19 @@ STORAGES = {
 
 
 # ---------- Email ----------
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # ---------- CORS ----------
-# On Render, set CORS_ORIGINS to your Netlify address (no trailing slash).
+# Default allows your Netlify site plus local testing.
+# On Render you can override with a CORS_ORIGINS env var
+# (comma-separated, no trailing slash).
 CORS_ALLOWED_ORIGINS = [
-    o for o in os.getenv(
-        'CORS_ORIGINS', 'http://127.0.0.1:5500,http://localhost:5500'
-    ).split(',') if o
+    o.strip() for o in os.getenv(
+        'CORS_ORIGINS',
+        'https://construction-estimator-01.netlify.app,'
+        'http://127.0.0.1:5500,http://localhost:5500'
+    ).split(',') if o.strip()
 ]
 
 
