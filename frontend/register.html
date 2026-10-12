@@ -3,31 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Registration</title>
+  <title>Register your company | BuildWise</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <p class="tag"><a href="index.html">← Back to estimator</a></p>
-    <h1>Register your construction company</h1>
-    <p>Get qualified leads. An admin verifies your company before it is listed.</p>
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="bi bi-building-gear me-2"></i>BuildWise</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Estimator</a></li>
+          <li class="nav-item"><a class="nav-link" href="compare.html">Compare quotes</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Company login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="container">
+      <h1>Register your construction company</h1>
+      <p>Get qualified leads. An admin verifies your company before it is listed.</p>
+    </div>
   </header>
-  <main>
-    <section class="card">
-      <form id="register-form">
-        <label>Username <input id="username" required></label>
-        <label>Password (min 6 characters) <input id="password" type="password" minlength="6" required></label>
-        <label>Company name <input id="name" required></label>
-        <label>City <input id="city" required></label>
-        <label>Phone <input id="phone" type="tel" required></label>
-        <label>Years of experience <input id="years" type="number" min="0" value="0"></label>
-        <label>About your company <textarea id="description" rows="3"></textarea></label>
-        <button type="submit">Register</button>
-      </form>
-      <p id="msg" class="muted"></p>
-      <p>Already registered? <a href="dashboard.html">Log in</a></p>
-    </section>
+
+  <main class="container overlap">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <section class="card p-4 p-md-5">
+          <form id="register-form" class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="username">Username</label><input id="username" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label" for="password">Password (min 6 characters)</label><input id="password" type="password" class="form-control" minlength="6" required></div>
+            <div class="col-12"><label class="form-label" for="name">Company name</label><input id="name" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label" for="city">City</label><input id="city" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label" for="phone">Phone</label><input id="phone" type="tel" class="form-control" required></div>
+            <div class="col-12"><label class="form-label" for="years">Years of experience</label><input id="years" type="number" class="form-control" min="0" value="0"></div>
+            <div class="col-12"><label class="form-label" for="description">About your company</label><textarea id="description" class="form-control" rows="3"></textarea></div>
+            <div class="col-12"><button type="submit" class="btn btn-brand btn-lg w-100">Register</button></div>
+          </form>
+          <p id="msg" class="muted mt-3 mb-0"></p>
+          <p class="mt-3 mb-0">Already registered? <a href="dashboard.html">Log in</a></p>
+        </section>
+      </div>
+    </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-3">
+      <div class="brand"><i class="bi bi-building-gear me-2"></i>BuildWise</div>
+      <small>Built by <a href="https://github.com/CodeWithMukesh01">Mukesh</a></small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const API = "http://127.0.0.1:8000/api";
     const $ = (id) => document.getElementById(id);

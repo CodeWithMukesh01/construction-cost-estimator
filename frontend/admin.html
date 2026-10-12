@@ -3,60 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Analytics</title>
+  <title>Admin analytics | BuildWise</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 </head>
 <body>
-  <header>
-    <p class="tag"><a href="index.html">← Back to estimator</a></p>
-    <h1>Platform analytics</h1>
+  <nav class="navbar navbar-dark site-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="bi bi-building-gear me-2"></i>BuildWise <small class="text-warning">· Admin</small></a>
+    </div>
+  </nav>
+
+  <header class="page-head">
+    <div class="container">
+      <h1>Platform analytics</h1>
+      <p>Estimates, quote requests and company activity at a glance.</p>
+    </div>
   </header>
 
-  <main>
-    <section class="card" id="login-card">
-      <h2>Admin log in</h2>
-      <form id="login-form">
-        <label>Username <input id="a_user" required></label>
-        <label>Password <input id="a_pass" type="password" required></label>
-        <button type="submit">Log in</button>
-      </form>
-      <p id="login-msg" class="error"></p>
-      <p class="muted">Use your Django admin account.</p>
-    </section>
+  <main class="container overlap">
+
+    <div class="row justify-content-center" id="login-card">
+      <div class="col-md-8 col-lg-5">
+        <section class="card p-4 p-md-5">
+          <h2 class="section-title h4 mb-4">Admin log in</h2>
+          <form id="login-form">
+            <div class="mb-3"><label class="form-label" for="a_user">Username</label><input id="a_user" class="form-control" required></div>
+            <div class="mb-3"><label class="form-label" for="a_pass">Password</label><input id="a_pass" type="password" class="form-control" required></div>
+            <button type="submit" class="btn btn-brand btn-lg w-100">Log in</button>
+          </form>
+          <p id="login-msg" class="error mt-3 mb-0"></p>
+          <p class="muted mt-2 mb-0">Use your Django admin account.</p>
+        </section>
+      </div>
+    </div>
 
     <div id="dash" hidden>
-      <div class="search-row">
-        <p class="muted" id="who" style="flex:1;margin:0"></p>
-        <button id="refresh" class="secondary" type="button">Refresh</button>
-        <button id="logout" class="secondary" type="button">Log out</button>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <p class="muted flex-grow-1 mb-0" id="who"></p>
+        <button id="refresh" class="btn btn-outline-secondary btn-sm" type="button"><i class="bi bi-arrow-clockwise me-1"></i>Refresh</button>
+        <button id="logout" class="btn btn-outline-secondary btn-sm" type="button">Log out</button>
       </div>
 
       <div class="kpis" id="kpis"></div>
 
-      <section class="card">
-        <h2>Estimates per week</h2>
-        <div class="chart-box"><canvas id="weekly-chart"></canvas></div>
+      <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+          <section class="card p-4 h-100">
+            <h2 class="section-title h5 mb-3">Estimates per week</h2>
+            <div class="chart-box"><canvas id="weekly-chart"></canvas></div>
+          </section>
+        </div>
+        <div class="col-lg-4">
+          <section class="card p-4 h-100">
+            <h2 class="section-title h5 mb-3">By finish level</h2>
+            <div class="chart-box"><canvas id="finish-chart"></canvas></div>
+          </section>
+        </div>
+      </div>
+
+      <section class="card p-4">
+        <h2 class="section-title h5 mb-3">Most requested companies</h2>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead><tr><th>Company</th><th>City</th><th>Requests</th><th>Quotes sent</th></tr></thead>
+            <tbody id="top-body"></tbody>
+          </table>
+        </div>
       </section>
 
-      <section class="card">
-        <h2>Estimates by finish level</h2>
-        <div class="chart-box small"><canvas id="finish-chart"></canvas></div>
-      </section>
-
-      <section class="card">
-        <h2>Most requested companies</h2>
-        <table>
-          <thead><tr><th>Company</th><th>City</th><th>Requests</th><th>Quotes sent</th></tr></thead>
-          <tbody id="top-body"></tbody>
-        </table>
-      </section>
-
-      <p class="muted">Estimates are counted from the day tracking was added, so the
-      estimate-to-request rate can look high at first.</p>
+      <p class="muted mt-3">Estimates are counted from the day tracking was added, so the estimate-to-request rate can look high at first.</p>
     </div>
   </main>
 
+  <footer class="site-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-3">
+      <div class="brand"><i class="bi bi-building-gear me-2"></i>BuildWise</div>
+      <small>Staff only</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="admin.js"></script>
 </body>
 </html>

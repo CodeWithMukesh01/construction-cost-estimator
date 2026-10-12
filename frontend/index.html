@@ -3,80 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Construction Cost Estimator</title>
+  <title>BuildWise | Construction Cost Estimator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <p class="tag">SDG 11 · Sustainable Cities and Communities</p>
-    <p><a href="register.html">Register your company</a> · <a href="dashboard.html">Company login</a></p>
-    <h1>Know your construction cost before you call a contractor</h1>
-    <p>Get an itemised estimate, then get matched with verified companies.</p>
+
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="bi bi-building-gear me-2"></i>BuildWise</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Estimator</a></li>
+          <li class="nav-item"><a class="nav-link" href="compare.html">Compare quotes</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Company login</a></li>
+          <li class="nav-item"><a class="btn btn-brand btn-sm" href="register.html">Register your company</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="sdg"><i class="bi bi-globe-asia-australia me-1"></i>SDG 11 · Sustainable Cities and Communities</span>
+      <h1>Know your construction cost before you call a contractor</h1>
+      <p class="lead mt-3">Get an itemised estimate in seconds, then get matched with verified companies that fit your budget.</p>
+      <div class="hero-points mt-4">
+        <span><i class="bi bi-check-circle-fill"></i>Itemised cost range</span>
+        <span><i class="bi bi-patch-check-fill"></i>Verified companies</span>
+        <span><i class="bi bi-bar-chart-fill"></i>Compare quotes</span>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>1. Estimate your cost</h2>
-      <form id="estimate-form">
-        <label>Plot size (sq ft)
-          <input type="number" id="plot_size" min="1" required placeholder="e.g. 1200">
-        </label>
-        <label>Number of floors
-          <input type="number" id="floors" min="1" max="10" value="1" required>
-        </label>
-        <label>Finish level
-          <select id="finish_level">
+  <main class="container overlap">
+
+    <section class="card p-4 p-md-5 mb-4">
+      <h2 class="section-title h4 mb-4"><span class="step">1</span>Estimate your cost</h2>
+
+      <form id="estimate-form" class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label" for="plot_size">Plot size (sq ft)</label>
+          <input type="number" id="plot_size" class="form-control form-control-lg" min="1" required placeholder="e.g. 1200">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="floors">Number of floors</label>
+          <input type="number" id="floors" class="form-control form-control-lg" min="1" max="10" value="1" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label" for="finish_level">Finish level</label>
+          <select id="finish_level" class="form-select form-select-lg">
             <option value="basic">Basic</option>
             <option value="standard" selected>Standard</option>
             <option value="premium">Premium</option>
           </select>
-        </label>
-        <button type="submit">Calculate estimate</button>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-brand btn-lg w-100"><i class="bi bi-calculator me-2"></i>Calculate estimate</button>
+        </div>
       </form>
-      <p id="estimate-error" class="error" hidden></p>
+      <p id="estimate-error" class="error mt-3" hidden></p>
 
       <div id="result" hidden>
-        <h3>Estimated cost range</h3>
+        <h3 class="h5 text-muted mb-0">Estimated cost range</h3>
         <p class="range" id="range"></p>
         <p class="muted" id="area"></p>
-        <table>
-          <thead><tr><th>Item</th><th>Rate (₹/sq ft)</th><th>Cost (₹)</th></tr></thead>
-          <tbody id="items"></tbody>
-        </table>
-        <button id="pdf-btn" type="button" style="margin-top:14px">Download PDF report</button>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead><tr><th>Item</th><th>Rate (₹/sq ft)</th><th>Cost (₹)</th></tr></thead>
+            <tbody id="items"></tbody>
+          </table>
+        </div>
+        <button id="pdf-btn" type="button" class="btn btn-outline-dark mt-2"><i class="bi bi-file-earmark-pdf me-2"></i>Download PDF report</button>
       </div>
     </section>
 
-      <section class="card">
-      <h2>2. Find verified companies</h2>
+    <section class="card p-4 p-md-5">
+      <h2 class="section-title h4 mb-4"><span class="step">2</span>Find verified companies</h2>
       <div class="search-row">
-        <input type="text" id="city" placeholder="Search by city, e.g. Ahmedabad">
-        <button id="search-btn" type="button">Search</button>
+        <input type="text" id="city" class="form-control" placeholder="Search by city, e.g. Ahmedabad">
+        <button id="search-btn" type="button"><i class="bi bi-search me-1"></i>Search</button>
       </div>
       <div id="selection-bar" class="selection-bar" hidden>
         <span id="sel-count"></span>
         <button id="sel-request" type="button">Request quotes from selected</button>
       </div>
       <div id="companies"></div>
-      <p class="muted">Already sent requests? <a href="compare.html">Compare your quotes</a></p>
+      <p class="muted mb-0 mt-2">Already sent requests? <a href="compare.html">Compare your quotes</a></p>
     </section>
   </main>
 
   <dialog id="quote-dialog">
     <form id="quote-form">
-      <h3 id="quote-title">Request a quote</h3>
-      <label>Your name <input type="text" id="q_name" required></label>
-      <label>Phone <input type="tel" id="q_phone" required></label>
-      <label>Email (optional) <input type="email" id="q_email"></label>
-      <label>Project details <textarea id="q_message" rows="3"></textarea></label>
+      <h3 id="quote-title" class="h5 mb-3">Request a quote</h3>
+      <div class="mb-3"><label class="form-label">Your name</label><input type="text" id="q_name" class="form-control" required></div>
+      <div class="mb-3"><label class="form-label">Phone</label><input type="tel" id="q_phone" class="form-control" required></div>
+      <div class="mb-3"><label class="form-label">Email (optional)</label><input type="email" id="q_email" class="form-control"></div>
+      <div class="mb-3"><label class="form-label">Project details</label><textarea id="q_message" class="form-control" rows="3"></textarea></div>
       <div class="dialog-actions">
-        <button type="button" id="q_cancel" class="secondary">Cancel</button>
-        <button type="submit">Send request</button>
+        <button type="button" id="q_cancel" class="btn btn-outline-secondary">Cancel</button>
+        <button type="submit" class="btn btn-brand">Send request</button>
       </div>
-      <p id="quote-msg" class="muted"></p>
+      <p id="quote-msg" class="muted mt-3 mb-0"></p>
     </form>
   </dialog>
 
+  <footer class="site-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-3">
+      <div>
+        <div class="brand"><i class="bi bi-building-gear me-2"></i>BuildWise</div>
+        <small>Indicative estimates. Final cost depends on design and site conditions.</small>
+      </div>
+      <div class="text-md-end">
+        <small>Supports SDG 11 · Sustainable Cities and Communities<br>
+        Built by <a href="https://github.com/CodeWithMukesh01">Mukesh</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
