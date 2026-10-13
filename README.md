@@ -7,7 +7,9 @@ compare them side by side.
 
 Supports **SDG 11: Sustainable Cities and Communities**.
 
-  **Live demo:** [construction-estimator-01.netlify.app](https://construction-estimator-01.netlify.app)
+**Live demo:** [construction-estimator-01.netlify.app](https://construction-estimator-01.netlify.app)
+
+**Deployed on:** Render (backend) and Netlify (frontend)
 
 ## Screenshots
 
@@ -28,8 +30,6 @@ Supports **SDG 11: Sustainable Cities and Communities**.
 
 ### Admin analytics dashboard
 ![Admin dashboard](m7.jpg)
-
-```
 
 ## Features
 
@@ -62,6 +62,7 @@ Supports **SDG 11: Sustainable Cities and Communities**.
 | Auth | Token authentication |
 | PDF | ReportLab |
 | Charts | Chart.js |
+| Hosting | Render (API), Netlify (frontend) |
 
 ## Project structure
 
@@ -125,6 +126,14 @@ python manage.py runserver
 6. Start the frontend with Live Server (**Go Live**) and open
    `http://localhost:5500/frontend/index.html`.
 
+## Deployment
+
+- **Backend (Render):** the Django API runs as a web service with a PostgreSQL database. Secrets such as `SECRET_KEY`, `DEBUG` and `DATABASE_URL` are set as environment variables, never committed.
+- **Frontend (Netlify):** the static HTML, CSS and JavaScript are served from Netlify and call the Render API.
+- **CORS:** the backend allows requests from the Netlify domain using `django-cors-headers`.
+- **Admin access:** create a staff user with `python manage.py createsuperuser`, then sign in on `admin.html` to view analytics.
+- **Note:** on a free Render plan the first request after a period of inactivity can take up to a minute while the server wakes up.
+
 ## Pages
 
 | Page | Who uses it |
@@ -142,7 +151,7 @@ total. Rates are managed in the Django admin and should be kept current for each
 
 ## Security notes
 
-- Passwords are hashed by Django; secrets live in `.env`, which is not committed.
+- Passwords are hashed by Django; secrets live in environment variables or `.env`, which is not committed.
 - A company can read and update only its own requests.
 - Quote comparison needs both the reference code and the phone number used.
 - The analytics API is restricted to staff accounts.
@@ -155,7 +164,6 @@ total. Rates are managed in the Django admin and should be kept current for each
 
 ## Roadmap
 
-- Deployment (Render and Netlify)
 - Accept a quote and customer reviews
 - City-wise rates and room-level inputs
 - Email or WhatsApp notifications
