@@ -14,7 +14,7 @@ Supports **SDG 11: Sustainable Cities and Communities**.
 ## Screenshots
 
 ### Home and cost estimator
-![Home page](screenshots/m1.png)
+![Home page](screenshots/m1.jpg)
 
 ### Itemised cost estimate
 ![Estimate result](screenshots/m2.png)
