@@ -10,28 +10,25 @@ Supports **SDG 11: Sustainable Cities and Communities**.
 **Live demo:** [construction-estimator-01.netlify.app](https://construction-estimator-01.netlify.app)
 
 **Deployed on:** Render (backend) and Netlify (frontend)
-
 ## Screenshots
 
 ### Home and cost estimator
-![Home page](m1.jpg)
+![Home page](https://raw.githubusercontent.com/CodeWithMukesh01/construction-cost-estimator/main/m1.jpg)
 
 ### Itemised cost estimate
-![Estimate result](m2.jpg)
+![Estimate result](https://raw.githubusercontent.com/CodeWithMukesh01/construction-cost-estimator/main/m2.jpg)
 
 ### Find verified companies and request quotes
-![Company search](m4.jpg)
+![Company search](https://raw.githubusercontent.com/CodeWithMukesh01/construction-cost-estimator/main/m4.jpg)
 
 ### Compare quotes side by side
-![Quote comparison](m5.jpg)
+![Quote comparison](https://raw.githubusercontent.com/CodeWithMukesh01/construction-cost-estimator/main/m5.jpg)
 
 ### Company registration
-![Register company](m6.jpg)
+![Register company](https://raw.githubusercontent.com/CodeWithMukesh01/construction-cost-estimator/main/m6.jpg)
 
 ### Admin analytics dashboard
-![Admin dashboard](m7.jpg)
-
-## Features
+![Admin dashboard](https://raw.githubusercontent.com/CodeWithMukesh01/construction-cost-estimator/main/m7.jpg)
 
 **For homeowners**
 - Cost estimator: plot size, floors and finish level give an itemised cost range
