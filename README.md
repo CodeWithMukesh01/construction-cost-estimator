@@ -7,16 +7,31 @@ compare them side by side.
 
 Supports **SDG 11: Sustainable Cities and Communities**.
 
-**Live demo:** coming soon
+  **Live demo:** [construction-estimator-01.netlify.app](https://construction-estimator-01.netlify.app)
 
 ## Screenshots
 
-Add images to a `screenshots` folder, then replace these lines:
+## Screenshots
 
-```
-![Estimator](screenshots/estimator.png)
-![Quote comparison](screenshots/compare.png)
-![Admin analytics](screenshots/analytics.png)
+### Home and cost estimator
+![Home page](screenshots/m1.png)
+
+### Itemised cost estimate
+![Estimate result](screenshots/m2.png)
+
+### Find verified companies and request quotes
+![Company search](screenshots/m4.png)
+
+### Compare quotes side by side
+![Quote comparison](screenshots/m5.png)
+
+### Company registration
+![Register company](screenshots/m6.png)
+
+### Admin analytics dashboard
+![Admin dashboard](screenshots/m7.png)
+
+
 ```
 
 ## Features
