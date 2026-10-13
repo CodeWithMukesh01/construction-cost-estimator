@@ -10,27 +10,23 @@ Supports **SDG 11: Sustainable Cities and Communities**.
   **Live demo:** [construction-estimator-01.netlify.app](https://construction-estimator-01.netlify.app)
 
 ## Screenshots
-
-## Screenshots
-
 ### Home and cost estimator
 ![Home page](screenshots/m1.jpg)
 
 ### Itemised cost estimate
-![Estimate result](screenshots/m2.png)
+![Estimate result](screenshots/m2.jpg)
 
 ### Find verified companies and request quotes
-![Company search](screenshots/m4.png)
+![Company search](screenshots/m4.jpg)
 
 ### Compare quotes side by side
-![Quote comparison](screenshots/m5.png)
+![Quote comparison](screenshots/m5.jpg)
 
 ### Company registration
-![Register company](screenshots/m6.png)
+![Register company](screenshots/m6.jpg)
 
 ### Admin analytics dashboard
-![Admin dashboard](screenshots/m7.png)
-
+![Admin dashboard](screenshots/m7.jpg)
 
 ```
 
