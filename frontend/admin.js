@@ -20,7 +20,7 @@ $("login-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   $("login-msg").textContent = "";
   try {
-    const res = await fetch(`${ADMIN_API}/staff/login/`, {
+    const res = await fetch(`${API}/staff/login/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: $("a_user").value.trim(), password: $("a_pass").value }),
@@ -135,7 +135,7 @@ function render(d) {
 
 async function load() {
   try {
-    const res = await fetch(`${ADMIN_API}/staff/analytics/`, {
+    const res = await fetch(`${API}/staff/analytics/`, {
       headers: { Authorization: `Token ${getToken()}` },
     });
     if (res.status === 401 || res.status === 403) { logout(); return; }
